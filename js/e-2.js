@@ -1,0 +1,36 @@
+// 2-Escribe un programa que cree un objeto "cuenta" con las siguientes propiedades:
+// Una propiedad titular con el valor "Alex".
+// Una propiedad saldo, teniendo como valor inicial 0.
+// Un método ingresar() que permita añadir dinero a la cuenta, pasando la cantidad como parámetro
+// Un método extraer() que permita retirar la cantidad pasada como parámetro.
+// Un método informar() que retorne la información del estado de la cuenta. 
+
+// Utiliza este objeto para mostrar la descripción, ingresar y extraer dinero y volver a mostrar la descripción del estado de la cuenta.
+
+class Cuenta {
+    constructor(titular,saldo){
+    this.titular='Alex';
+    this.saldo= 0;
+    }
+    ingresar(dineroIngresado){
+       this.saldo = dineroIngresado;
+    }
+    extraer(montoAExtraer){
+      this.saldo = this.saldo - montoAExtraer; 
+    }
+    informar(){
+        document.write(`
+        <ul>
+        <li>Titular: ${this.titular}</li>
+        <li>Saldo: ${this.saldo}</li>
+        </ul>
+        `);
+    }
+}
+let cuentaA = new Cuenta();
+document.write(`Estado inicial de la cuenta:<br>`)
+cuentaA.informar();
+cuentaA.ingresar(prompt(`ingrese dinero a la cuenta`));
+cuentaA.extraer(prompt(`ingrese monto que desea extraer`));
+document.write(`Estado final de la cuenta despues de realizar ingreso y extracción de dinero:<br>`)
+cuentaA.informar();
